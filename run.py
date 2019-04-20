@@ -3,7 +3,13 @@ from datetime import datetime
 from flask import Flask, redirect, render_template, request, session, url_for
 
 app = Flask(__name__)
+
+"""  make the secret key an environment variable.
+So to do that I'm going to say app.secret_key = os.getenv And it's going to look for a variable called "SECRET".
+I'm going to leave "randomstring123" in there as the second argument because this becomes the default value 
 app.secret_key = "randomstring123"
+"""
+app.secret_key = os.getenv("SECRET", "randomstring123")
 messages = []
 
 
@@ -72,4 +78,8 @@ def send_message(username, message):
     add_messages(username, message)
     return redirect("/" + username) #remember to import redirect from flask
 """    
-app.run(host=os.getenv("IP"), port=int(os.getenv("PORT")), debug=True)
+app.run(host=os.getenv("IP", "0.0.0.0"),port=int(os.getenv("PORT", "5000")), debug=False)
+"""
+See that we already set the IP and PORT variable values, so we don't need to do it in heroku
+debug=True only during development, before deployment change to False
+"""
