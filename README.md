@@ -7,3 +7,7 @@ And when the user puts a chat message up, we'll be able to display that in the b
 
 https://flask-chatroom-rasquin-project.herokuapp.com/ 
 https://git.heroku.com/flask-chatroom-rasquin-project.git
+
+
+Example of session with a quiz
+https://github.com/Code-Institute-Solutions/Proposed-Flask-Quiz
